@@ -62,7 +62,17 @@
 			@foreach ($references as $ndx => $reference)
 				<section>
     					<h2>{{ $reference->title }} ({{ $reference->year }})</h2>
-					<p>{{ $reference->authors }}</p>
+					<p>by {{ $reference->authors }}</p>
+				@if (isset($titles))
+					<span>Included patterns:</span>
+					<ul>
+					@foreach ($titles as $title)
+						<li><a href="/patterns/id/{{$title->pattern_id}}">{{ $title->title }}</a></li>
+					@endforeach
+					</ul>
+				@else
+					<a href="/references/{{$reference->reference_id}}">more>></a>
+				@endif
 				</section>
 				<br />
 			@endforeach
@@ -74,24 +84,21 @@
 				</header>
 				<section>
     					<h2>Jean-Michel Lehker</h2>
-					<p>email: rpl599@my.utsa.edu</p>
+					<p>email: <a href="mailto:rpl599@my.utsa.edu">rpl599@my.utsa.edu</a></p>
 				</section>
 				<br />
 				<section>
     					<h2>Rocky Slavin</h2>
-					<p>email: @my.utsa.edu</p>
+					<p>email: <a href="mailto:koq441@my.utsa.edu">koq441@my.utsa.edu</a></p>
 				</section>
 				<br />
 				<section>
     					<h2>Jianwei Niu</h2>
-					<p>email: @my.utsa.edu</p>
+					<p>email: <a href="mailto:niu@cs.utsa.edu">niu@cs.utsa.edu</a> </p>
 				</section>
 				<br />
 			@endif
 			
-				<section>
-				<footer>
-				</footer>
 			</article>
 			
 			<aside>

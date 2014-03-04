@@ -6,7 +6,7 @@ class References extends Eloquent {
 	public static function allReferences()
 	{
 		$references = DB::table('references')
-			->select('title', 'authors', 'short_name', 'year')
+			->select('title', 'authors', 'short_name', 'year', 'reference_id')
 			->orderBy('year')
 			->paginate(10);
 

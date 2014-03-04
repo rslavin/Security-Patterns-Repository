@@ -10,16 +10,18 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::pattern('id', '[0-9]+');
 
 Route::get('/', function()
 {
 	return Redirect::to('patterns');
 });
 Route::get('/patterns', 'HomeController@showPatterns');
+Route::get('/patterns/{id}', 'HomeController@showPatternsById');
 Route::get('/patterns/{type}', 'HomeController@showPatternsByType');
 Route::get('/references', 'HomeController@showReferences');
 Route::get('/references/{id}', 'HomeController@showReference');
 Route::get('/contact', function() 
 {
-	return View::make('main');
+	return View::make('pages.contact');
 });
