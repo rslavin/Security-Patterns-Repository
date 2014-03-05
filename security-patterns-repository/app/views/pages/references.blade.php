@@ -12,11 +12,11 @@
 			<span>Included patterns:</span>
 			<ul>
 			@foreach ($titles as $title)
-				<li><a href="/patterns/{{$title->pattern_id}}">{{ $title->title }}</a></li>
+				<li><a href="/repository/patterns/{{$title->pattern_id}}">{{ $title->title }}</a></li>
 			@endforeach
 			</ul>
 		@else
-			<a href="/references/{{$reference->reference_id}}">more>></a>
+			<a href="/repository/references/{{$reference->reference_id}}">more>></a>
 		@endif
 		</section>
 		<br />

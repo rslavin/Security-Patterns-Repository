@@ -16,11 +16,14 @@ Route::get('/', function()
 {
 	return Redirect::to('patterns');
 });
+
 Route::get('/patterns', 'HomeController@showPatterns');
 Route::get('/patterns/{id}', 'HomeController@showPatternsById');
 Route::get('/patterns/{type}', 'HomeController@showPatternsByType');
+
 Route::get('/references', 'HomeController@showReferences');
 Route::get('/references/{id}', 'HomeController@showReference');
+
 Route::get('/contact', function() 
 {
 	return View::make('pages.contact');

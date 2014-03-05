@@ -6,6 +6,6 @@
 <meta name="author" content="">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/repository/css/style.css">
 
-<script src="/js/libs/modernizr-2.0.6.min.js"></script>
+<script src="/repository/js/libs/modernizr-2.0.6.min.js"></script>
