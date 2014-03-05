@@ -1,0 +1,26 @@
+<?php $__env->startSection('content'); ?>
+	<header>
+		<h1>References</h1>
+		<hr/>
+	</header>
+	<?php foreach ($references as $ndx => $reference): ?>
+		<section>
+ 			<h2><?php echo $reference->title; ?> (<?php echo $reference->year; ?>)</h2>
+			<p>by <?php echo $reference->authors; ?></p>
+		<?php if (isset($titles)): ?>
+			<span>Included patterns:</span>
+			<ul>
+			<?php foreach ($titles as $title): ?>
+				<li><a href="/repository/patterns/<?php echo $title->pattern_id; ?>"><?php echo $title->title; ?></a></li>
+			<?php endforeach; ?>
+			</ul>
+		<?php else: ?>
+			<a href="/repository/references/<?php echo $reference->reference_id; ?>">more>></a>
+		<?php endif; ?>
+		</section>
+		<br />
+	<?php endforeach; ?>
+	<?php echo $references->links(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

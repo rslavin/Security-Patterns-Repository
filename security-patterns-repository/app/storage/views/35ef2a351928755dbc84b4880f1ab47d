@@ -34,7 +34,7 @@
 		<div id="main" class="wrapper clearfix">
 			
 			<article>
-			@if (isset($patterns))
+			<?php if (isset($patterns)): ?>
 				<header>
 					<h1>Patterns</h1>
 					<a href="/patterns">all </a>|
@@ -46,38 +46,38 @@
 					<hr/>
 				</header>
 			<?php $count = $patterns->getFrom();  ?>
-			@foreach ($patterns as $ndx => $pattern)
+			<?php foreach ($patterns as $ndx => $pattern): ?>
 				<section>
-    					<h2> {{ $count++ }})  {{ $pattern->title }}</h2>
-					<h3> (source: <a href="/references/{{$pattern->reference_id}}">{{ $pattern->short_name}}</a>)</h3>
-					<p>{{ $pattern->description }}</p>
+    					<h2> <?php echo $count++; ?>)  <?php echo $pattern->title; ?></h2>
+					<h3> (source: <a href="/references/<?php echo $pattern->reference_id; ?>"><?php echo $pattern->short_name; ?></a>)</h3>
+					<p><?php echo $pattern->description; ?></p>
 				</section>
-			@endforeach
-				{{ $patterns->links() }}
-			@elseif (isset($references))
+			<?php endforeach; ?>
+				<?php echo $patterns->links(); ?>
+			<?php elseif (isset($references)): ?>
 				<header>
 					<h1>References</h1>
 					<hr/>
 				</header>
-			@foreach ($references as $ndx => $reference)
+			<?php foreach ($references as $ndx => $reference): ?>
 				<section>
-    					<h2>{{ $reference->title }} ({{ $reference->year }})</h2>
-					<p>by {{ $reference->authors }}</p>
-				@if (isset($titles))
+    					<h2><?php echo $reference->title; ?> (<?php echo $reference->year; ?>)</h2>
+					<p>by <?php echo $reference->authors; ?></p>
+				<?php if (isset($titles)): ?>
 					<span>Included patterns:</span>
 					<ul>
-					@foreach ($titles as $title)
-						<li><a href="/patterns/id/{{$title->pattern_id}}">{{ $title->title }}</a></li>
-					@endforeach
+					<?php foreach ($titles as $title): ?>
+						<li><a href="/patterns/id/<?php echo $title->pattern_id; ?>"><?php echo $title->title; ?></a></li>
+					<?php endforeach; ?>
 					</ul>
-				@else
-					<a href="/references/{{$reference->reference_id}}">more>></a>
-				@endif
+				<?php else: ?>
+					<a href="/references/<?php echo $reference->reference_id; ?>">more>></a>
+				<?php endif; ?>
 				</section>
 				<br />
-			@endforeach
-				{{ $references->links() }}
-			@else
+			<?php endforeach; ?>
+				<?php echo $references->links(); ?>
+			<?php else: ?>
 				<header>
 					<h1>Contact</h1>
 					<hr/>
@@ -97,7 +97,7 @@
 					<p>email: <a href="mailto:niu@cs.utsa.edu">niu@cs.utsa.edu</a> </p>
 				</section>
 				<br />
-			@endif
+			<?php endif; ?>
 			
 			</article>
 			

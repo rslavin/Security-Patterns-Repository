@@ -1,0 +1,27 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<?php echo $__env->make('includes.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</head>
+<body>
+	<div id="header-container">
+		<?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</div>
+	<div id="main-container">
+		<div id="main" class="wrapper clearfix">
+			<article>
+				<?php echo $__env->yieldContent('content'); ?>		
+			</article>
+			<aside>
+				<?php echo $__env->make('includes.aside', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</aside>
+		</div> <!-- #main -->
+	</div> <!-- #main-container -->
+	<div id="footer-container">
+		<?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</div>
+</body>
+</html>

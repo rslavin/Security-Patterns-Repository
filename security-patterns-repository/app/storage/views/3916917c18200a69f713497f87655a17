@@ -1,0 +1,24 @@
+<?php $__env->startSection('content'); ?>
+	<header>
+		<h1>Patterns</h1>
+		<a href="/repository/patterns">all </a>|
+		<a href="/repository/patterns/design">design </a>|
+		<a href="/repository/patterns/requirements">requirement </a>|
+		<a href="/repository/patterns/architectural">architectural </a>|
+		<a href="/repository/patterns/implementation">implementation </a>	
+		<hr/>
+	</header>
+	
+	<?php $count = $patterns->getFrom();  ?>
+	<?php foreach ($patterns as $ndx => $pattern): ?>
+		<section>
+    		<h2> <?php echo $count++; ?>)  <?php echo $pattern->title; ?></h2>
+			<h3> (source: <a href="/repository/references/<?php echo $pattern->reference_id; ?>"><?php echo $pattern->short_name; ?></a>)</h3>
+			<p><?php echo $pattern->description; ?></p>
+		</section>
+	<?php endforeach; ?>
+	<?php echo $patterns->links(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
