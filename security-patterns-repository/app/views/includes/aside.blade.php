@@ -1,6 +1,6 @@
 <h3>security pattern</h3>
 <p>Security patterns are reusable solutions to security problems.</p>
-<p>test</p>
+<p>test testtest</p>
 <section class="loginform cf">
 <form name="login" action="index_submit" method="get" accept-charset="utf-8">
 	<ul>
