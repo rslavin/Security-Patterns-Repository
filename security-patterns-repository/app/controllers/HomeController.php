@@ -18,28 +18,34 @@ class HomeController extends BaseController {
 	public function showPatterns()
 	{
 		$patterns = Patterns::allPatterns();
-		return View::make('pages.patterns', array('patterns' => $patterns));
+		
+		return View::make('pages.patterns', array('patterns' => $patterns))
+				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 	public function showPatternsByType($type)
 	{
 		$patterns = Patterns::getPatternsByType($type);
-		return View::make('pages.patterns', array('patterns' => $patterns));
+		return View::make('pages.patterns', array('patterns' => $patterns))
+				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 	public function showPatternsById($id)
 	{
 		$patterns = Patterns::getPatternsById($id);
-		return View::make('pages.patterns', array('patterns' => $patterns));
+		return View::make('pages.patterns', array('patterns' => $patterns))
+				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 	public function showReferences()
 	{
 		$references = References::allReferences();
-		return View::make('pages.references', array('references' => $references));
+		return View::make('pages.references', array('references' => $references))
+				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 	public function showReference($id)
 	{
 		$references = References::getReference($id);
 		$patterns = Patterns::getPatternsByReference($id);
-		return View::make('pages.references', array('references' => $references, 'titles' => $patterns));
+		return View::make('pages.references', array('references' => $references, 'titles' => $patterns))
+				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 
 }

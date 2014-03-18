@@ -18,6 +18,10 @@
 			<aside>
 				@include('includes.aside')
 			</aside>
+			<br />
+			<aside>
+				@yield('count', '<p></p>')
+			</aside>
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
 	<div id="footer-container">

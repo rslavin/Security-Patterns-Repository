@@ -63,6 +63,30 @@ class Patterns extends Eloquent {
 
 		return $patterns;
 	}
+	
+	public static function getPatternsCount() {
+		$all = DB::table('patterns')
+				->count();
+		
+		$design = DB::table('patterns')
+				->where('design_type', '=', 'TRUE')
+				->count();
+	
+		$requirements = DB::table('patterns')
+				->where('requirements_type', '=', 'TRUE')
+				->count();
+				
+		$architectural = DB::table('patterns')
+				->where('architectural_type', '=', 'TRUE')
+				->count();
+				
+		$implementation = DB::table('patterns')
+				->where('implementation_type', '=', 'TRUE')
+				->count();
+	
+		return array('all_count'=>$all,'design_count'=>$design,'requirements_count'=>$requirements,
+					'architectural_count'=>$architectural,'implementation_count'=>$implementation);
+	}
 
 
 

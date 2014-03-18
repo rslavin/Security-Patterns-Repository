@@ -21,3 +21,6 @@
 	{{ $patterns->links() }}
 
 @stop
+@section('count')
+<?php echo $pattern_count; ?>
+@stop
