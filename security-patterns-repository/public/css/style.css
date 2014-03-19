@@ -10,7 +10,9 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
-
+html, body {
+	height: 100%;
+}
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
@@ -19,6 +21,12 @@ a:visited { color: #00e;text-decoration:none; }
 a:hover { color: #06e; text-decoration:underline;}
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
+
+a.h1title { color: white; text-decoration:none;}
+a.h1title:visited { color: white;text-decoration:none; }
+a.h1title:hover { color: white; text-decoration:none;}
+a.h1title:focus { outline: none; }
+a.h1title:hover, a.h1title:active { outline: 0; }
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
@@ -90,6 +98,16 @@ body{ font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif; }
 #footer-container{ border-top:    20px solid #222222; }
 #main aside      { border-top:    20px solid #222222; }
 
+#main-container {
+	min-height: 100%;
+	position: relative;
+}
+#footer-container {
+	position: relative;
+}
+.clearfooter {
+	clear: both;
+}
 
 #header-container,
 #footer-container,

@@ -24,6 +24,7 @@
 			</aside>
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
+	<div class="clearfooter"></div>
 	<div id="footer-container">
 		@include('includes.footer')
 	</div>
