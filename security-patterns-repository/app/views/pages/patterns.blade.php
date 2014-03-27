@@ -13,7 +13,7 @@
 	<?php $count = $patterns->getFrom();  ?>
 	@foreach ($patterns as $ndx => $pattern)
 		<section>
-    		<h2> {{ $count++ }})  {{ $pattern->title }}</h2>
+    		<h2> {{ $count++ }})  {{ $pattern->title }} {{ $pattern->mini ? "<small>(mini pattern)</small>" : "" }}</h2>
 			<h3> (source: <a href="/repository/references/{{$pattern->reference_id}}">{{ $pattern->short_name}}</a>)</h3>
 			<p>{{ $pattern->description }}</p>
 		</section>
