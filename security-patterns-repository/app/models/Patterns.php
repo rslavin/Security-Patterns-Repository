@@ -9,7 +9,8 @@ class Patterns extends Eloquent {
 			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
 			->select('references.reference_id', 
 				'patterns.title', 
-				'patterns.description', 
+				'patterns.description',
+                'patterns.mini',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -24,7 +25,8 @@ class Patterns extends Eloquent {
 			->where($type.'_type', '=', 'TRUE')
 			->select('references.reference_id', 
 				'patterns.title', 
-				'patterns.description', 
+				'patterns.description',
+                'patterns.mini',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -40,7 +42,8 @@ class Patterns extends Eloquent {
 			->where('patterns.pattern_id', '=', $id)
 			->select('references.reference_id', 
 				'patterns.title', 
-				'patterns.description', 
+				'patterns.description',
+                'patterns.mini',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(1);
@@ -56,6 +59,7 @@ class Patterns extends Eloquent {
 			->where('patterns.reference_id', '=',$id) 
 			->select('references.reference_id', 
 				'patterns.pattern_id',
+                'patterns.mini',
 				'patterns.title') 
 			->orderBy('patterns.title')
 			->get();
