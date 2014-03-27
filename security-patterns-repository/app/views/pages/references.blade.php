@@ -12,7 +12,7 @@
 			<span>Included patterns:</span>
 			<ul>
 			@foreach ($titles as $title)
-				<li><a href="/repository/patterns/{{$title->pattern_id}}">{{ $title->title }}</a></li>
+				<li><a href="/repository/patterns/{{$title->pattern_id}}">{{ $title->title }}</a>{{ $title->mini ? "<small> (mini pattern)</small>" : "" }}</li>
 			@endforeach
 			</ul>
 		@else
