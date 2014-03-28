@@ -6,7 +6,8 @@
 		<a href="/repository/patterns/design">design </a>|
 		<a href="/repository/patterns/requirements">requirement </a>|
 		<a href="/repository/patterns/architectural">architectural </a>|
-		<a href="/repository/patterns/implementation">implementation </a>	
+		<a href="/repository/patterns/implementation">implementation </a>|
+        <a href="/repository/patterns/procedural">procedural </a>
 		<hr/>
 	</header>
 	

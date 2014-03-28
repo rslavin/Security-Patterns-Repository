@@ -87,9 +87,14 @@ class Patterns extends Eloquent {
 		$implementation = DB::table('patterns')
 				->where('implementation_type', '=', 'TRUE')
 				->count();
-	
+
+        $procedural = DB::table('patterns')
+            ->where('procedural_type', '=', 'TRUE')
+            ->count();
+
 		return array('all_count'=>$all,'design_count'=>$design,'requirements_count'=>$requirements,
-					'architectural_count'=>$architectural,'implementation_count'=>$implementation);
+					'architectural_count'=>$architectural,'implementation_count'=>$implementation,
+                    'procedural_count'=>$procedural);
 	}
 
 
