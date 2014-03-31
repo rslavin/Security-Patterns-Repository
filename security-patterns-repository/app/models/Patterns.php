@@ -104,7 +104,7 @@ class Patterns extends Eloquent {
 	{
 		$patterns = DB::table('patterns')
 			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
-			->where('patterns.title', 'LIKE', '%'.$keywords.'%')
+			->where('patterns.title', 'ILIKE', '%'.$keywords.'%')
 			->select('references.reference_id', 
 				'patterns.title', 
 				'patterns.description',
