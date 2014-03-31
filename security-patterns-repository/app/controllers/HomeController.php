@@ -34,9 +34,9 @@ class HomeController extends BaseController {
 		return View::make('pages.patterns', array('patterns' => $patterns))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
-	public function showPatternsByKeywords()
+	public function showPatternsByKeywords($keywords)
 	{
-		$keywords = Input::get('q');
+		//$keywords = Input::get('q');
 		$patterns = Patterns::getSearchResults($keywords);
 		return View::make('pages.patterns', array('patterns' => $patterns))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());

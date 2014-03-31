@@ -18,7 +18,12 @@ Route::get('/', function()
 });
 
 Route::get('/patterns', 'HomeController@showPatterns');
-Route::post('/patterns/search', 'HomeController@showPatternsByKeywords');
+Route::post('/patterns/search', function()
+{
+	$keywords = Input::get('q');
+	return Redirect::to('patterns/search/'.$keywords);
+});
+Route::get('/patterns/search/{keywords}', 'HomeController@showPatternsByKeywords');
 Route::get('/patterns/{id}', 'HomeController@showPatternsById');
 Route::get('/patterns/{type}', 'HomeController@showPatternsByType');
 
