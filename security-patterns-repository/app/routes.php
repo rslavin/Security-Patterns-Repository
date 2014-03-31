@@ -18,6 +18,7 @@ Route::get('/', function()
 });
 
 Route::get('/patterns', 'HomeController@showPatterns');
+Route::post('/patterns/search', 'HomeController@showPatternsByKeywords');
 Route::get('/patterns/{id}', 'HomeController@showPatternsById');
 Route::get('/patterns/{type}', 'HomeController@showPatternsByType');
 

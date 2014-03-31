@@ -17,6 +17,7 @@ class Patterns extends Eloquent {
 
 		return $patterns;
 	}
+	
 	public static function getPatternsByType($type)
 	{
 		
@@ -34,6 +35,7 @@ class Patterns extends Eloquent {
 
 		return $patterns;
 	}
+	
 	public static function getPatternsById($id)
 	{
 		
@@ -51,6 +53,7 @@ class Patterns extends Eloquent {
 
 		return $patterns;
 	}
+	
 	public static function getPatternsByReference($id)
 	{
 		
@@ -87,17 +90,31 @@ class Patterns extends Eloquent {
 		$implementation = DB::table('patterns')
 				->where('implementation_type', '=', 'TRUE')
 				->count();
-
-        $procedural = DB::table('patterns')
-            ->where('procedural_type', '=', 'TRUE')
-            ->count();
-
+				
+		$procedural = DB::table('patterns')
+				->where('procedural_type', '=', 'TRUE')
+				->count();
+	
 		return array('all_count'=>$all,'design_count'=>$design,'requirements_count'=>$requirements,
 					'architectural_count'=>$architectural,'implementation_count'=>$implementation,
-                    'procedural_count'=>$procedural);
+					'procedural_count'=>$procedural);
 	}
 
+	public static function getSearchResults($keywords)
+	{
+		$patterns = DB::table('patterns')
+			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
+			->where('patterns.title', 'LIKE', '%'.$keywords.'%')
+			->select('references.reference_id', 
+				'patterns.title', 
+				'patterns.description',
+                'patterns.mini',
+				'references.short_name')
+			->orderBy('patterns.title')
+			->paginate(9);
 
+		return $patterns;
+	}
 
 }
 ?>
