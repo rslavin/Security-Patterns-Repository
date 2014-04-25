@@ -34,3 +34,8 @@ Route::get('/contact', function()
 {
 	return View::make('pages.contact');
 });
+
+Route::get('/types', function() 
+{
+	return View::make('pages.types');
+});

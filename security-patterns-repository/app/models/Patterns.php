@@ -102,17 +102,27 @@ class Patterns extends Eloquent {
 
 	public static function getSearchResults($keywords)
 	{
-		$patterns = DB::table('patterns')
-			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
-			->where('patterns.title', 'ILIKE', '%'.$keywords.'%')
-			->select('references.reference_id', 
-				'patterns.title', 
-				'patterns.description',
-                'patterns.mini',
-				'references.short_name')
-			->orderBy('patterns.title')
-			->paginate(9);
+		/**
+		 * returns patterns based on title, description, keywords, and body
+		 */
 
+		
+		$patterns = DB::table('patterns')
+					->join('references', 'patterns.reference_id', '=', 'references.reference_id')
+					->where('patterns.title', 'ILIKE', '%'.$keywords.'%')
+					->orWhere('patterns.description', 'ILIKE', '%'.$keywords.'%')
+					->orWhere('patterns.keywords', 'ILIKE', '%'.$keywords.'%')
+					->orWhere('patterns.body', 'ILIKE', '%'.$keywords.'%')
+					->select('references.reference_id', 
+						'patterns.title', 
+						'patterns.description',
+						'patterns.mini',
+						'references.short_name')
+					->orderBy('patterns.title')
+					->paginate(9);
+
+				
+		
 		return $patterns;
 	}
 

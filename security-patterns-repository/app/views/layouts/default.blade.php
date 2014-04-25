@@ -22,6 +22,9 @@
 			<aside>
 				@yield('count', '<p></p>')
 			</aside>
+			<aside>
+				@include('includes.links')
+			</aside>
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
 	<div class="clearfooter"></div>
