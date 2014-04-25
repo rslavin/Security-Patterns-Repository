@@ -102,6 +102,7 @@ class Patterns extends Eloquent {
 
 	public static function getSearchResults($keywords)
 	{
+		$keywords = implode('* +', explode(' ',$keywords."*"));
 		/**
 		 * returns patterns based on title, description, keywords, and body
 		 */
@@ -109,20 +110,20 @@ class Patterns extends Eloquent {
 		
 		$patterns = DB::table('patterns')
 					->join('references', 'patterns.reference_id', '=', 'references.reference_id')
-					->where('patterns.title', 'LIKE', '%'.$keywords.'%')
-					->orWhere('patterns.description', 'LIKE', '%'.$keywords.'%')
-					->orWhere('patterns.keywords', 'LIKE', '%'.$keywords.'%')
-					->orWhere('patterns.body', 'LIKE', '%'.$keywords.'%')
 					->select('references.reference_id', 
 						'patterns.title', 
 						'patterns.description',
 						'patterns.mini',
 						'references.short_name')
+					->whereRaw("MATCH(".
+								"`patterns`.`title`,". 
+								"`patterns`.`description`,".
+								"`patterns`.`keywords`,".
+								"`patterns`.`body`)". 
+								"AGAINST(? IN BOOLEAN MODE)", array($keywords))
 					->orderBy('patterns.title')
 					->paginate(9);
 
-				
-		
 		return $patterns;
 	}
 
