@@ -23,7 +23,7 @@ class Patterns extends Eloquent {
 		
 		$patterns = DB::table('patterns')
 			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
-			->where($type.'_type', '=', 'TRUE')
+			->where($type.'_type', '=', '1')
 			->select('references.reference_id', 
 				'patterns.title', 
 				'patterns.description',
@@ -76,23 +76,23 @@ class Patterns extends Eloquent {
 				->count();
 		
 		$design = DB::table('patterns')
-				->where('design_type', '=', 'TRUE')
+				->where('design_type', '=', '1')
 				->count();
 	
 		$requirements = DB::table('patterns')
-				->where('requirements_type', '=', 'TRUE')
+				->where('requirements_type', '=', '1')
 				->count();
 				
 		$architectural = DB::table('patterns')
-				->where('architectural_type', '=', 'TRUE')
+				->where('architectural_type', '=', '1')
 				->count();
 				
 		$implementation = DB::table('patterns')
-				->where('implementation_type', '=', 'TRUE')
+				->where('implementation_type', '=', '1')
 				->count();
 				
 		$procedural = DB::table('patterns')
-				->where('procedural_type', '=', 'TRUE')
+				->where('procedural_type', '=', '1')
 				->count();
 	
 		return array('all_count'=>$all,'design_count'=>$design,'requirements_count'=>$requirements,
@@ -109,10 +109,10 @@ class Patterns extends Eloquent {
 		
 		$patterns = DB::table('patterns')
 					->join('references', 'patterns.reference_id', '=', 'references.reference_id')
-					->where('patterns.title', 'ILIKE', '%'.$keywords.'%')
-					->orWhere('patterns.description', 'ILIKE', '%'.$keywords.'%')
-					->orWhere('patterns.keywords', 'ILIKE', '%'.$keywords.'%')
-					->orWhere('patterns.body', 'ILIKE', '%'.$keywords.'%')
+					->where('patterns.title', 'LIKE', '%'.$keywords.'%')
+					->orWhere('patterns.description', 'LIKE', '%'.$keywords.'%')
+					->orWhere('patterns.keywords', 'LIKE', '%'.$keywords.'%')
+					->orWhere('patterns.body', 'LIKE', '%'.$keywords.'%')
 					->select('references.reference_id', 
 						'patterns.title', 
 						'patterns.description',
