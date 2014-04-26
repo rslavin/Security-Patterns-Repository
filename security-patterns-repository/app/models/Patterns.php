@@ -102,7 +102,7 @@ class Patterns extends Eloquent {
 
 	public static function getSearchResults($keywords)
 	{
-		$keywords = implode('* +', explode(' ',$keywords."*"));
+		$keywords = implode('* ~', explode(' ',"+".$keywords."*"));
 		/**
 		 * returns patterns based on title, description, keywords, and body
 		 */
@@ -119,7 +119,7 @@ class Patterns extends Eloquent {
 								"`patterns`.`title`,". 
 								"`patterns`.`description`,".
 								"`patterns`.`keywords`,".
-								"`patterns`.`body`)". 
+								"`patterns`.`body`) ". 
 								"AGAINST(? IN BOOLEAN MODE)", array($keywords))
 					->orderBy('patterns.title')
 					->paginate(9);
