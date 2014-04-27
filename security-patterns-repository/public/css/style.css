@@ -34,6 +34,10 @@ a.h1title:hover, a.h1title:active { outline: 0; }
 #links a:hover { color: white; text-decoration:underline;}
 #links li {list-style-type: none;}
 
+#h2link a{ color: black; text-decoration:none;}
+#h2link a:visited { color: black; text-decoration:none; }
+#h2link a:hover { color: black; text-decoration:underline;}
+
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }

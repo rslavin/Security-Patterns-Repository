@@ -39,3 +39,5 @@ Route::get('/types', function()
 {
 	return View::make('pages.types');
 });
+
+Route::get('/patterns/details/{id}', 'DetailsController@showPatternById');

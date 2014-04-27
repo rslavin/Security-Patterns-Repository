@@ -11,6 +11,7 @@ class Patterns extends Eloquent {
 				'patterns.title', 
 				'patterns.description',
                 'patterns.mini',
+                'patterns.pattern_id',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -28,6 +29,7 @@ class Patterns extends Eloquent {
 				'patterns.title', 
 				'patterns.description',
                 'patterns.mini',
+                'patterns.pattern_id',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -46,12 +48,36 @@ class Patterns extends Eloquent {
 				'patterns.title', 
 				'patterns.description',
                 'patterns.mini',
+                'patterns.pattern_id',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(1);
 
 
 		return $patterns;
+	}
+
+	public static function getSinglePatternById($id)
+	{
+		
+		$pattern = DB::table('patterns')
+			->join('references', 'patterns.reference_id', '=', 'references.reference_id')
+			->where('patterns.pattern_id', '=', $id)
+			->select('patterns.title',
+				'patterns.description',
+				'patterns.mini',
+				'patterns.design_type',
+				'patterns.requirements_type',
+				'patterns.architectural_type',
+				'patterns.implementation_type',
+				'patterns.procedural_type',
+				'patterns.keywords',
+				'patterns.body',
+				'patterns.reference_id',
+				'references.short_name')
+			->first();
+
+		return $pattern;
 	}
 	
 	public static function getPatternsByReference($id)
@@ -114,6 +140,7 @@ class Patterns extends Eloquent {
 						'patterns.title', 
 						'patterns.description',
 						'patterns.mini',
+                		'patterns.pattern_id',
 						'references.short_name')
 					->whereRaw("MATCH(".
 								"`patterns`.`title`,". 

@@ -5,7 +5,7 @@
 		<hr/>
 	</header>
 	
-	<section>
+	<section id="h2link">
     	<h2><a href="/patterns/design">Design</a></h2>
     	<strong>Description</strong>
 		<p>The design pattern is the most abundant type of pattern. Such patterns 
@@ -15,10 +15,10 @@
 		<strong>Criteria</strong>
 		<p>Patterns were categorized as <i>design</i> patterns if their respective
 			authors described them as such.</p>
-	</section>
+	
 	<br />
 	
-	<section>
+
     	<h2><a href="/patterns/design">Requirement</a></h2>
 		<p>Requirements patterns provide a solution to recurring requirements problems
 			or situations. These types of patterns do not deal with the design or 
@@ -28,10 +28,10 @@
 			<strong>Criteria</strong>
 		<p>Patterns were categorized as <i>requirements</i> patterns if their respective
 			authors described them as such.</p>
-	</section>
+	
 	<br />
 	
-	<section>
+	
     	<h2><a href="/patterns/design">Architectural</a></h2>
 		<p>Architectural patterns describe a recurring solution to an architectural
 			design problem. Such patterns generally include design, requirements, security, 
@@ -40,10 +40,10 @@
 			<strong>Criteria</strong>
 		<p>Patterns were categorized as <i>architectural</i> patterns if their respective
 			authors described them as such.</p>
-	</section>
+	
 	<br />
 	
-	<section>
+	
     	<h2><a href="/patterns/design">Implementation</a></h2>
 		<p>Implementation patterns focus on helping software developers write effective 
 			and flexible code. </p>
@@ -51,10 +51,10 @@
 			<strong>Criteria</strong>
 		<p>Patterns were categorized as <i>implementation</i> patterns if their respective
 			authors described them as such.</p>
-	</section>
+	
 	<br />
 	
-	<section>
+	
     	<h2><a href="/patterns/design">Procedural</a></h2>
 		<p>Procedural patterns are similar to design patterns in that they describe a way 
 			to design a solution to a recurring problem. The difference is that procedural
@@ -65,10 +65,10 @@
 			<strong>Criteria</strong>
 		<p>Patterns were categorized as <i>procedural</i> patterns if their respective
 			authors described them as such.</p>
-	</section>
+	
 	<br />
 	
-	<section>
+	
     	<h2><a href="/patterns/design">Mini</a></h2>
 		<p>We classify solutions for recurring problems which are not specified in 
 			large amounts of text as mini patterns. Generally, such patterns address
