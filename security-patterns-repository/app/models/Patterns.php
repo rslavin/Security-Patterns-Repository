@@ -143,14 +143,17 @@ class Patterns extends Eloquent {
                 		'patterns.pattern_id',
 						'references.short_name',
 					DB::raw(" MATCH(`patterns`.`title`) AGAINST('?' IN BOOLEAN MODE) AS rel1", array($keywords)),
-					DB::raw(" MATCH(`patterns`.`keywords`) AGAINST('?' IN BOOLEAN MODE) AS rel2", array($keywords)),
-					DB::raw(" MATCH(`patterns`.`description`) AGAINST('?' IN BOOLEAN MODE) AS rel3", array($keywords)))
+					DB::raw(" MATCH(`patterns`.`description`) AGAINST('?' IN BOOLEAN MODE) AS rel2", array($keywords)),
+					DB::raw(" MATCH(`patterns`.`keywords`) AGAINST('?' IN BOOLEAN MODE) AS rel3", array($keywords)))
 					->whereRaw("MATCH(".
 								"`patterns`.`title`,".
-								"`patterns`.`keywords`,". 
-								"`patterns`.`description`) ". 
+								"`patterns`.`description`,". 
+								"`patterns`.`keywords`) ". 
 								"AGAINST(? IN BOOLEAN MODE)", array($keywords))
-					->orderBy(DB::raw('(rel1*2)+(rel2*1.5)+rel3'))
+					->orderBy('rel1')
+					->orderBy('rel2')
+					->orderBy('rel3')
+					
 					->paginate(9);
 
 		return $patterns;
