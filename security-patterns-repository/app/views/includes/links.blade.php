@@ -1,9 +1,10 @@
 <section>
 	<h1>Navigation</h1>
-	<ul>
-		<li><a href="/patterns">Patterns</a></li>
-		<li><a href="/types">Pattern Types</a></li>
-		<li><a href="/references">References</a></li>
-		<li><a href="/contact">Contact</a></li>
+	<ul id="links">
+		<li><a href="/repository/patterns">Patterns</a></li>
+		<li><a href="/repository/types">Pattern Types</a></li>
+		<li><a href="/repository/references">References</a></li>
+		<li><a href="/repository/contact">Contact</a></li>
 	</ul>
+	
 </section>

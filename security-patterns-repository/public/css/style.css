@@ -28,6 +28,13 @@ a.h1title:hover { color: white; text-decoration:none;}
 a.h1title:focus { outline: none; }
 a.h1title:hover, a.h1title:active { outline: 0; }
 
+
+#links a{ color: white; text-decoration:none;}
+#links a:visited { color: white;text-decoration:none; }
+#links a:hover { color: white; text-decoration:underline;}
+#links li {list-style-type: none;}
+
+
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 blockquote { margin: 1em 40px; }
