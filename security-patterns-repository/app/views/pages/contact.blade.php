@@ -23,3 +23,6 @@
 	</section>
 	<br />
 @stop
+@section('count')
+<?php echo $pattern_count; ?>
+@stop

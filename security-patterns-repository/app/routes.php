@@ -32,12 +32,14 @@ Route::get('/references/{id}', 'HomeController@showReference');
 
 Route::get('/contact', function() 
 {
-	return View::make('pages.contact');
+	return View::make('pages.contact')
+		->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());;
 });
 
 Route::get('/types', function() 
 {
-	return View::make('pages.types');
+	return View::make('pages.types')
+		->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());;
 });
 
 Route::get('/patterns/details/{id}', 'DetailsController@showPatternById');

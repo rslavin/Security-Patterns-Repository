@@ -22,6 +22,7 @@
 			<aside>
 				@yield('count', '<p></p>')
 			</aside>
+			<br />
 			<aside>
 				@include('includes.links')
 			</aside>
