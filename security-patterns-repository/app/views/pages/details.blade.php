@@ -21,10 +21,10 @@
 			
 			<p><strong>Pattern Type</strong><br />
 			{{ $pattern->design_type ? "Design<br />" : "" }}
-			{{ $pattern->requirements_type ? "Design<br />" : "" }}
-			{{ $pattern->architectural_type ? "Design<br />" : "" }}
-			{{ $pattern->implementation_type ? "Design<br />" : "" }}
-			{{ $pattern->procedural_type ? "Design<br />" : "" }}
+			{{ $pattern->requirements_type ? "Requirements<br />" : "" }}
+			{{ $pattern->architectural_type ? "Architectural<br />" : "" }}
+			{{ $pattern->implementation_type ? "Implementation<br />" : "" }}
+			{{ $pattern->procedural_type ? "Procedural<br />" : "" }}
 			</p>
 			
 			<strong>Keywords</strong>
