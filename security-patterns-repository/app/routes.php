@@ -11,11 +11,13 @@
 |
 */
 Route::pattern('id', '[0-9]+');
-
 Route::get('/', function()
 {
 	return Redirect::to('patterns');
 });
+
+
+Route::controller('/users', 'UsersController');
 
 Route::get('/patterns', 'HomeController@showPatterns');
 Route::post('/patterns/search', function()

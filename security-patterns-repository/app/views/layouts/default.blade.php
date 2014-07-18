@@ -13,14 +13,23 @@
 	<div id="main-container">
 		<div id="main" class="wrapper clearfix">
 			<article>
-				@yield('content')		
+				@yield('content')
 			</article>
+			@if (Auth::check())
+				<aside>
+					<h3>Welcome, {{ Auth::user()->firstname }}!</h3>
+				</aside> 
+			@endif
 			<aside>
 				@include('includes.aside')
 			</aside>
 			<br />
 			<aside>
-				@yield('count', '<p></p>')
+				@if (isset($content))
+					{{ $content }}
+				@else
+					@yield('count', '<p></p>')
+				@endif
 			</aside>
 			<br />
 			<aside>
