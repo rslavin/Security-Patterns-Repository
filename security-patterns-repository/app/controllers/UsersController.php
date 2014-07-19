@@ -24,7 +24,7 @@ class UsersController extends BaseController {
 	
 	public function getLogout() {
 		Auth::logout();
-		return Redirect::to('patterns');
+		return Redirect::back();
 	}
 }
 ?>

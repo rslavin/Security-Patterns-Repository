@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		$this->call('UserTableSeeder');
+		$this->call('CweTableSeeder');
 	}
 
 }
@@ -42,4 +43,20 @@ class UserTableSeeder extends Seeder {
         ));
     }
 
+}
+
+class CweTableSeeder extends Seeder {
+	public function run() {
+		DB::table('cwe_set')->delete();
+		DB::table('cwe')->delete();
+		
+		$set = CweSet::create(array('pattern_id' => 98));
+		
+		Cwe::create(array('name' => 'fakeCwe1', 'cwe_set_id' => $set->id));
+		
+		Cwe::create(array('name' => 'fakeCwe2', 'cwe_set_id' => $set->id));
+		
+		
+	}
+	
 }

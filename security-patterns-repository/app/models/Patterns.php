@@ -66,6 +66,7 @@ class Patterns extends Eloquent {
 			->select('patterns.title',
 				'patterns.description',
 				'patterns.mini',
+				'patterns.pattern_id',
 				'patterns.design_type',
 				'patterns.requirements_type',
 				'patterns.architectural_type',
@@ -95,6 +96,14 @@ class Patterns extends Eloquent {
 
 
 		return $patterns;
+	}
+	
+	public static function updatePattern($id, $description) {
+		$res = DB::table('patterns')
+		->where('pattern_id', $id)
+		->update(array('description' => $description));
+		
+		return $res;
 	}
 	
 	public static function getPatternsCount() {

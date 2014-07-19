@@ -446,3 +446,15 @@ label {
 	border-radius: 3px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
+.animated {
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	transition: height 0.2s;
+}
+textarea {
+	border:1px dotted #ccc;
+	padding: 10px;
+	vertical-align: top;
+	width: 80%; height: auto;
+font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif;
+}

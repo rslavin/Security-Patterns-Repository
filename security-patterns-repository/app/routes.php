@@ -18,6 +18,8 @@ Route::get('/', function()
 
 
 Route::controller('/users', 'UsersController');
+Route::controller('/cwe_set', 'CweSetController');
+
 
 Route::get('/patterns', 'HomeController@showPatterns');
 Route::post('/patterns/search', function()
@@ -27,6 +29,7 @@ Route::post('/patterns/search', function()
 });
 Route::get('/patterns/search/{keywords}', 'HomeController@showPatternsByKeywords');
 Route::get('/patterns/{id}', 'HomeController@showPatternsById');
+Route::post('/patterns/{id}', 'HomeController@updatePattern');
 Route::get('/patterns/{type}', 'HomeController@showPatternsByType');
 
 Route::get('/references', 'HomeController@showReferences');

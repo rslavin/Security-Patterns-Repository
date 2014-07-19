@@ -22,6 +22,12 @@ class HomeController extends BaseController {
 		return View::make('pages.patterns', array('patterns' => $patterns))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
+	public function updatePattern($id)
+	{
+		$description = Input::get('description');
+		Patterns::updatePattern($id, $description);
+		return Redirect::back();
+	}
 	public function showPatternsByType($type)
 	{
 		$patterns = Patterns::getPatternsByType($type);
@@ -31,6 +37,7 @@ class HomeController extends BaseController {
 	public function showPatternsById($id)
 	{
 		$patterns = Patterns::getPatternsById($id);
+
 		return View::make('pages.patterns', array('patterns' => $patterns))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
