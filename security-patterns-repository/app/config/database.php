@@ -56,8 +56,8 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'repository',
-			'username'  => 'papasmurf',
+			'database'  => 'pattern_repository',
+			'username'  => 'pattern_repo',
 			'password'  => 'vRU.64jYwJ',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',

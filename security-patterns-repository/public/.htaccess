@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /repository
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+#AuthUserFile /usr/local/www/apache24/data/.htpasswd
+#AuthType Basic
+#AuthName "Security Patterns Repository"
+#Require valid-user

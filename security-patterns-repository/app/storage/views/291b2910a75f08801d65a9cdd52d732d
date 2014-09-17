@@ -1,4 +1,4 @@
 <footer class="wrapper">
-	<pre>Please contact Jean-Michel Lehker at rpl599@my.utsa.edu with problems or questions about this repository.</pre>
+	<small>Copyright &copy <?=date('Y')?> The University of Texas at San Antonio | One UTSA Circle, San Antonio TX 78249 </small>
 </footer>
 

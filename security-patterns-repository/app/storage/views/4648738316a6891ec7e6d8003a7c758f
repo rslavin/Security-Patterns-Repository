@@ -11,7 +11,7 @@
 			<span>Included patterns:</span>
 			<ul>
 			<?php foreach ($titles as $title): ?>
-				<li><a href="/repository/patterns/<?php echo $title->pattern_id; ?>"><?php echo $title->title; ?></a></li>
+				<li><a href="/repository/patterns/<?php echo $title->pattern_id; ?>"><?php echo $title->title; ?></a><?php echo $title->mini ? "<small> (mini pattern)</small>" : ""; ?></li>
 			<?php endforeach; ?>
 			</ul>
 		<?php else: ?>
@@ -22,5 +22,7 @@
 	<?php endforeach; ?>
 	<?php echo $references->links(); ?>
 <?php $__env->stopSection(); ?>
-
+<?php $__env->startSection('count'); ?>
+<?php echo $pattern_count; ?>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

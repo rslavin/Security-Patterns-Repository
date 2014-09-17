@@ -7,5 +7,7 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/repository/css/style.css">
-
-<script src="/repository/js/libs/modernizr-2.0.6.min.js"></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+<script src='/repository/js/libs/jquery.autosize.js'></script>
+<script src='/repository/js/libs/modernizr-2.0.6.min.js'></script>
+<script src='/repository/js/main.js'></script>

@@ -13,13 +13,31 @@
 	<div id="main-container">
 		<div id="main" class="wrapper clearfix">
 			<article>
-				<?php echo $__env->yieldContent('content'); ?>		
+				<?php echo $__env->yieldContent('content'); ?>
 			</article>
+			<?php if (Auth::check()): ?>
+				<aside>
+					<h3>Welcome, <?php echo Auth::user()->firstname; ?>!</h3>
+				</aside> 
+			<?php endif; ?>
 			<aside>
 				<?php echo $__env->make('includes.aside', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</aside>
+			<br />
+			<aside>
+				<?php if (isset($content)): ?>
+					<?php echo $content; ?>
+				<?php else: ?>
+					<?php echo $__env->yieldContent('count', '<p></p>'); ?>
+				<?php endif; ?>
+			</aside>
+			<br />
+			<aside>
+				<?php echo $__env->make('includes.links', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</aside>
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
+	<div class="clearfooter"></div>
 	<div id="footer-container">
 		<?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	</div>

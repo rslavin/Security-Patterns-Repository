@@ -1,5 +1,5 @@
 <header class="wrapper clearfix">
-	<h1 id="title">Security Pattern Repository</h1>
+	<h1 id="title"><a class="h1title" href="/repository">Security Pattern Repository</a></h1>
 	<nav>
 		<ul>
 			<li><a href="/repository/patterns">Patterns</a></li>
