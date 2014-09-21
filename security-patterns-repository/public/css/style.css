@@ -87,7 +87,11 @@ td { vertical-align: top; }
     Author: Jonathan Verrecchia
    =================================================== */
 
-body{ font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif; }
+body{ /*font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif;*/
+font-family: 'Open Sans', sans-serif;
+font-size:16px/24px
+
+ }
 
 .wrapper{
 	width:90%;
@@ -105,9 +109,9 @@ body{ font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif; }
 #footer-container{ border-top:    20px solid #666; }
 #main aside      { border-top:    20px solid #666; }
 */
-#header-container{ border-bottom: 20px solid #222222; }
-#footer-container{ border-top:    20px solid #222222; }
-#main aside      { border-top:    20px solid #222222; }
+#header-container{ border-top: 	  10px solid #222222; }
+#footer-container{ border-top:    10px solid #222222; }
+#main aside      { border-top:    10px solid #222222; }
 
 #main-container {
 	min-height: 100%;
@@ -124,7 +128,24 @@ body{ font:16px/24px Helvetica, Helvetica Neue, Arial, sans-serif; }
 #footer-container,
 #main aside{
 	/*background:#f16529;*/
-	background:#555555;
+	/*background:#555555;*/
+	background:#373737;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-signin-field{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-bottom: 16px;
+}
+
+.form-signin-heading{
+	text-align: center;
 }
 
 /*#title{ color:#1b4867; }*/
@@ -142,7 +163,7 @@ nav a{
 	margin-bottom:10px;
 	padding:15px 0;
 
-	background:#222222;
+	background-color: #373737;
 	color:white;
 
 	text-align:center;
@@ -174,7 +195,7 @@ nav a:hover{
 #main aside{
 	color:white;
 	/*color:#1b4867;*/
-	padding:0px 5% 10px;
+	padding:20px;
 }
 
 #footer-container footer{
@@ -215,6 +236,7 @@ nav a:hover{
 		margin:0 1.7%;
 		padding:25px 2%;
 		margin-bottom:0;
+		background-color: #373737;
 	}
 	
 	nav li:first-child a{ margin-left:0;  }
@@ -265,6 +287,7 @@ nav a:hover{
 	#main article{
 		float:left;
 		width:57%;
+		min-height: 500px;
 	}
 		
 	#main aside{
@@ -396,11 +419,11 @@ nav a:hover{
 }
 .searchform ul {
 	padding: 0;
-	margin: 0;
+	margin-top: -7px;
+	margin-left: 10px;
 }
 .searchform li {
 	display: inline;
-	float: left;
 }
 label {
 	display: block;

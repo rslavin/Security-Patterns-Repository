@@ -1,10 +1,10 @@
 <header class="wrapper clearfix">
-	<h1 id="title"><a class="h1title" href="/repository">Security Pattern Repository</a></h1>
+	<h1 id="title"><a class="h1title" href="/repository">{{ HTML::image('images/logo.png', $alt="Security Patterns Repository", $attributes = array()) }}</a></h1>
 	<nav>
 		<ul>
-			<li><a href="/repository/patterns">Patterns</a></li>
-			<li><a href="/repository/references">References</a></li>
-			<li><a href="/repository/contact">Contact</a></li>
+			<li><a href="/repository/patterns">PATTERNS</a></li>
+			<li><a href="/repository/references">REFERENCES</a></li>
+			<li><a href="/repository/contact">CONTACT</a></li>
 		</ul>
 	</nav>
 </header>

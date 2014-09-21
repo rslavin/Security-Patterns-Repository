@@ -9,7 +9,7 @@ class UsersController extends BaseController {
 	}
 
 	public function getLogin() {
-    	$this->layout->content = View::make('users.login');
+    	$this->layout->content = View::make('users.login')->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
 	}
 	
 	public function postLogin() {
