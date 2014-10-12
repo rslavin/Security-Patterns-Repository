@@ -5,7 +5,12 @@
 			<li>{{ HTML::link('/users/login', 'Login') }}</li>
 		@else
 			<li>{{ HTML::link('users/logout', 'Logout') }}  ({{Auth::user()->email}})</li>
+            
+            @if (Auth::user()->role == "Admin" )
+			    <li>{{ HTML::link('/users/register', 'Register') }}</li>
+		    @endif   
 		@endif
+
 		<li><a href="/repository/patterns">Patterns</a></li>
 		<li><a href="/repository/types">Pattern Types</a></li>
 		<li><a href="/repository/references">References</a></li>

@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::pattern('id', '[0-9]+');
 Route::get('/', function()
 {
@@ -17,7 +18,7 @@ Route::get('/', function()
 });
 
 
-Route::controller('/users', 'UsersController');
+
 Route::controller('/cwe_set', 'CweSetController');
 
 
@@ -48,3 +49,32 @@ Route::get('/types', function()
 });
 
 Route::get('/patterns/details/{id}', 'DetailsController@showPatternById');
+
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+//Route::get('/users/edit/{id}', 'UsersController@edit');
+//Route::post('edit', array('uses' => 'UsersController@postUpdate'));
+
+//Route::get('nerd/edit/{id}', array('as' => 'users.getEdit', function($id) 
+	//{
+		// return our view and Nerd information
+		//return View::make('edit') // pulls app/views/nerd-edit.blade.php
+			//->with('user', Users::find($id));
+	//}));
+    
+    // route to process the form
+	//Route::post('users/edit', function() {
+		// process our form
+	//});
+    
+    
+//route for edit employee page.
+Route::get('/users/edit/{id}', 'UsersController@edit');
+//route for delete emplooyee page
+//Route::get('/delete/{employee}', 'EmployeesController@delete');
+//route to handle edit form submission
+Route::post('/users/edit/{id}', 'UsersController@update');
+Route::controller('users', 'UsersController');
+//route to handle delete.
+//Route::post('/delete', 'EmployeesController@handleDelete');
