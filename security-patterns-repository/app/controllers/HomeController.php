@@ -25,7 +25,8 @@ class HomeController extends BaseController {
 	public function updatePattern($id)
 	{
 		$description = Input::get('description');
-		Patterns::updatePattern($id, $description);
+        $source = Input::get('source');
+		Patterns::updatePattern($id, $description, $source);
 		return Redirect::back();
 	}
 	public function showPatternsByType($type)

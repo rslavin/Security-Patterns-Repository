@@ -20,6 +20,9 @@
 			@if (Auth::check())
 				{{ Form::open(array('url'=>'patterns/'.$pattern->pattern_id, 'class'=>'searchform')) }}
 				{{ Form::textarea('description', $pattern->description, array('class'=>'animated'))}}
+                <br/><br/>
+                <strong>Source</strong><br/>
+                {{ Form::text('source', $pattern->source, array('class'=>'animated'))}}
 				<br />
 				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block'))}}
 				{{ Form::close() }}

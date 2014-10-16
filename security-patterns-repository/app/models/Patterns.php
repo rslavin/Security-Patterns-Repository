@@ -12,6 +12,7 @@ class Patterns extends Eloquent {
 				'patterns.description',
                 'patterns.mini',
                 'patterns.pattern_id',
+                'patterns.source',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -30,6 +31,7 @@ class Patterns extends Eloquent {
 				'patterns.description',
                 'patterns.mini',
                 'patterns.pattern_id',
+                'patterns.source',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(9);
@@ -49,6 +51,7 @@ class Patterns extends Eloquent {
 				'patterns.description',
                 'patterns.mini',
                 'patterns.pattern_id',
+                'patterns.source',
 				'references.short_name')
 			->orderBy('patterns.title')
 			->paginate(1);
@@ -75,6 +78,7 @@ class Patterns extends Eloquent {
 				'patterns.keywords',
 				'patterns.body',
 				'patterns.reference_id',
+                'patterns.source',
 				'references.short_name')
 			->first();
 
@@ -90,6 +94,7 @@ class Patterns extends Eloquent {
 			->select('references.reference_id', 
 				'patterns.pattern_id',
                 'patterns.mini',
+                'patterns.source',
 				'patterns.title') 
 			->orderBy('patterns.title')
 			->get();
@@ -98,10 +103,10 @@ class Patterns extends Eloquent {
 		return $patterns;
 	}
 	
-	public static function updatePattern($id, $description) {
+	public static function updatePattern($id, $description, $source) {
 		$res = DB::table('patterns')
 		->where('pattern_id', $id)
-		->update(array('description' => $description));
+		->update(array('description' => $description, 'source' => $source));
 		
 		return $res;
 	}
