@@ -59,6 +59,10 @@
 			<strong>Download</strong>
 			<p>TODO</p>
 			
+			@if(Auth::check() && Auth::user()->role == "Study")
+				{{ $study_button }}
+			@endif
+			
 		</section>
 	
 @stop

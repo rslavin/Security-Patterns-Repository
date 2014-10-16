@@ -78,3 +78,5 @@ Route::post('/users/edit/{id}', 'UsersController@update');
 Route::controller('users', 'UsersController');
 //route to handle delete.
 //Route::post('/delete', 'EmployeesController@handleDelete');
+
+Route::post('/selectPattern', 'UsersController@addPatternSelection');

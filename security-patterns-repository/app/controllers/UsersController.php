@@ -108,6 +108,15 @@ class UsersController extends \BaseController {
 		Session::flash('message', 'Successfully deleted the nerd!');
 		return Redirect::to('users/index');
 	}
+	
+	/* USER STUDY FUNCTIONS */
+	
+	// add a new selection for a scenario
+	public function addPatternSelection(){
+		UserStudy::addSelection(Auth::user()->id, Input::get('pattern_id'));
+		return Redirect::to('/patterns');
+		//->with('message', 'Pattern ' . Patterns::getPatternsById(Input::get('pattern_id'))->title . 'selected')
+	}
 
 }
 ?>
