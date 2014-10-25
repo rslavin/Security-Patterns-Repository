@@ -17,7 +17,7 @@
 			<h3> (source: <a href="/repository/references/{{$pattern->reference_id}}">{{ $pattern->short_name}}</a>)</h3>
 			
 			<strong>Description</strong>
-			@if (Auth::check())
+			@if (Auth::check() && Auth::user()->role == "Admin")
 				{{ Form::open(array('url'=>'patterns/'.$pattern->pattern_id, 'class'=>'searchform')) }}
 				{{ Form::textarea('description', $pattern->description, array('class'=>'animated'))}}
                 <br/><br/>
@@ -44,7 +44,7 @@
 			@foreach($cwes as $cwe)
 				<li>{{ $cwe->name }}</li>
 			@endforeach
-			@if (Auth::check())
+			@if (Auth::check() && Auth::user()->role == "Admin")
 				{{ Form::open(array('url'=>'cwe_set/add', 'class'=>'searchform')) }}
 				{{ Form::hidden('pattern_id', $pattern->pattern_id)}}
 				{{ Form::text('cwe_name') }}
