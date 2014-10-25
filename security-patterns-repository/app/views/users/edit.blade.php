@@ -32,7 +32,7 @@
     </div>
     
      <div class="form-signin-field">
-    	{{ Form::select('role', array('Admin' => 'Admin', 'User' => 'User'), 'User', ['class' => 'form-dropdown']) }}
+    	{{ Form::select('role', array('Admin' => 'Admin', 'User' => 'User', 'Study' => 'Study'), 'User', ['class' => 'form-dropdown']) }}
     </div>   
     
     <div class="form-signin-field">
