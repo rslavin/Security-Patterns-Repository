@@ -2,12 +2,12 @@
 	<h1>Navigation</h1>
 	<ul id="links">
 		@if (!Auth::check())
-			<li>{{ HTML::link('/users/login', 'Login') }}</li>
+			<li>{{ HTML::link('/login', 'Login') }}</li>
 		@else
-			<li>{{ HTML::link('users/logout', 'Logout') }}  ({{Auth::user()->email}})</li>
+			<li>{{ HTML::link('/logout', 'Logout') }}  ({{Auth::user()->email}})</li>
             
             @if (Auth::user()->role == "Admin" )
-			    <li>{{ HTML::link('/users/register', 'Register') }}</li>
+			    <li>{{ HTML::link('/admin', 'Admin') }}</li>
 		    @endif   
 		@endif
 
