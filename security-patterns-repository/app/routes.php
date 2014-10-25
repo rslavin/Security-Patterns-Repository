@@ -50,8 +50,7 @@ Route::get('/types', function()
 
 Route::get('/patterns/details/{id}', 'DetailsController@showPatternById');
 
-Route::get('login', array('uses' => 'HomeController@showLogin'));
-Route::post('login', array('uses' => 'HomeController@doLogin'));
+
 
 //Route::get('/users/edit/{id}', 'UsersController@edit');
 //Route::post('edit', array('uses' => 'UsersController@postUpdate'));
@@ -70,14 +69,24 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
     
     
 //route for edit employee page.
-Route::get('/users/edit/{id}', 'UsersController@edit');
+Route::get('/admin/', function()
+{
+	return Redirect::to('/admin/users/');
+});
+Route::controller('/admin/users/', 'UsersController');
+Route::get('/admin/users/edit/{id}', 'UsersController@edit');
+Route::post('/admin/users/edit/{id}', 'UsersController@update');
 //route for delete emplooyee page
 //Route::get('/delete/{employee}', 'EmployeesController@delete');
 //route to handle edit form submission
-Route::post('/users/edit/{id}', 'UsersController@update');
-Route::controller('users', 'UsersController');
+//Route::controller('users', 'UsersController');
 //route to handle delete.
 //Route::post('/delete', 'EmployeesController@handleDelete');
+
+Route::get('/login', 'UsersController@getLogin');
+Route::get('/register', 'UsersController@getRegister');
+Route::post('/login', array('uses' => 'UsersController@postLogin'));
+Route::get('/logout', 'UsersController@getLogout');
 
 Route::post('/selectPattern', 'UsersController@addPatternSelection');
 
@@ -90,7 +99,4 @@ Route::post('/selectPattern', 'UsersController@addPatternSelection');
 |
 */
 
-// I would have used 'users*' but 'users/login' and 'users/register' need to be 
-// accessible by guests
-Route::when('users/edit', 'admin');
-Route::when('users', 'admin');
+Route::when('admin*', 'admin');

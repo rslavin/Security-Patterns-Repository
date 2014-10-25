@@ -16,7 +16,7 @@ class UsersController extends \BaseController {
 		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
 			return Redirect::to('patterns')->with('message', 'You are now logged in!');
 		} else {
-			return Redirect::to('users/login')
+			return Redirect::to('login')
 				->with('message', 'Your username/password combination was incorrect')
 				->withInput();
 		}
@@ -91,9 +91,9 @@ class UsersController extends \BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->role = Input::get('role');
             $user->save();
-            return Redirect::to('users/index')->with('message', 'Updated!');
+            return Redirect::to('admin/users')->with('message', 'Updated!');
         } else {
-            return Redirect::to('users/edit/' . $id)->withErrors($validator)->withInput(Input::except('password'));
+            return Redirect::to('admin/users/edit/' . $id)->withErrors($validator)->withInput(Input::except('password'));
         }    
 		
 	}

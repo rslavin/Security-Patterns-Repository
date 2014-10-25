@@ -1,7 +1,7 @@
 @section('content')
 
 <div class="loginForm">
-	{{ Form::open(array('url'=>'users/login', 'class'=>'searchform')) }}
+	{{ Form::open(array('url'=>'/login', 'class'=>'searchform')) }}
     <h2 class="form-signin-heading">Please Login</h2>
  		<div class="form-signin-field">
     		{{ Form::email('email', null, array('class'=>'input-block-level', 'placeholder'=>'Email Address', 'required'=>true)) }}

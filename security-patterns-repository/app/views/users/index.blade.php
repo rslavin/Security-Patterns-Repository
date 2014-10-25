@@ -29,7 +29,7 @@
 
 			<td>
 
-				<a class="btn btn-small btn-info edit" href="{{ URL::to('users/edit/' . $value->id) }}">Edit</a>            
+				<a class="btn btn-small btn-info edit" href="{{ URL::to('admin/users/edit/' . $value->id) }}">Edit</a>            
 
 			</td>
 		</tr>
