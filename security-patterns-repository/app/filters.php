@@ -78,3 +78,18 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Admin Filter
+|--------------------------------------------------------------------------
+|
+| Redirects the user if they are not an admin.
+|
+*/
+
+Route::filter('admin', function()
+{
+	if (!Auth::check() || Auth::user()->role != "Admin")
+		return Redirect::to('/');
+});

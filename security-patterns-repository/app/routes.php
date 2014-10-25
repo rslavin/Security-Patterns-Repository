@@ -80,3 +80,17 @@ Route::controller('users', 'UsersController');
 //Route::post('/delete', 'EmployeesController@handleDelete');
 
 Route::post('/selectPattern', 'UsersController@addPatternSelection');
+
+/*
+|--------------------------------------------------------------------------
+| Access Control
+|--------------------------------------------------------------------------
+|
+| Here are the rules for access control. Put the logic in filters.php
+|
+*/
+
+// I would have used 'users*' but 'users/login' and 'users/register' need to be 
+// accessible by guests
+Route::when('users/edit', 'admin');
+Route::when('users', 'admin');
