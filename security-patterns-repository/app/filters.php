@@ -90,6 +90,6 @@ Route::filter('csrf', function()
 
 Route::filter('admin', function()
 {
-	if (!Auth::check() || Auth::user()->role != "Admin")
+	if (!Auth::check() || Auth::user()->role != 1)
 		return Redirect::to('/');
 });

@@ -10,6 +10,8 @@ class CweSetTable extends Migration {
 		Schema::create('cwe_set', function($table) {
 			$table->increments('id');
 			$table->integer('pattern_id');
+			$table->integer('user_id');
+			$table->integer('scenario');
 			$table->timestamps();
 		});
 	}

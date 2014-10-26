@@ -10,7 +10,7 @@
             <li class="form-error">{{ $error }}</li><br/>
         @endforeach
     </ul>
- 		
+     		
     <div class="form-signin-field">
         {{Form::text('firstname', null,array('class' => 'input-block-level', 'placeholder'=>'First Name', 'required'=>true))}}
     </div>
@@ -32,7 +32,7 @@
     </div>
     
      <div class="form-signin-field">
-    	{{ Form::select('role', array('Admin' => 'Admin', 'User' => 'User', 'Study' => 'Study'), 'User', ['class' => 'form-dropdown']) }}
+    	{{ Form::select('role', $roles, $user->role, ['class' => 'form-dropdown']) }}
     </div>   
     
     <div class="form-signin-field">

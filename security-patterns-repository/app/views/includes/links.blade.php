@@ -6,7 +6,7 @@
 		@else
 			<li>{{ HTML::link('/logout', 'Logout') }}  ({{Auth::user()->email}})</li>
             
-            @if (Auth::user()->role == "Admin" )
+            @if (Auth::user()->role == 1)
 			    <li>{{ HTML::link('/admin', 'Admin') }}</li>
 		    @endif   
 		@endif

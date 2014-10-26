@@ -38,6 +38,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->password;
 	}
+	
+	/**
+	 * Get the rolename for a user.
+	 */
+	 public function getRolename(){
+	 	return Roles::getrole($this->role);
+	 }
 
 	/**
 	 * Get the e-mail address where password reminders are sent.

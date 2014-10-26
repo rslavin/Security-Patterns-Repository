@@ -25,7 +25,7 @@
 			<td>{{ $value->firstname }}</td>
 			<td>{{ $value->lastname }}</td>
 			<td>{{ $value->email }}</td>
-            <td>{{ $value->role }}</td>
+            <td>{{ $value->getRolename() }}</td>
 
 			<td>
 

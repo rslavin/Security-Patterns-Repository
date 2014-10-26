@@ -21,7 +21,7 @@ class DetailsController extends BaseController {
 			$cwes = [];
 		}
 		
-		if(Auth::check() && Auth::user()->role == "Study"){
+		if(Auth::check() && Auth::user()->role == 3){
 			return View::make('pages.details', array('pattern'=> $pattern, 'cwes' => $cwes))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount())
 				->nest('study_button', 'study.study_button', array('scenario' => UserStudy::getCurrentScenario(AUTH::user()->id), 'pattern_id' => $id));

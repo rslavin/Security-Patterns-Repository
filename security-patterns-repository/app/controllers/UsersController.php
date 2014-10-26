@@ -75,9 +75,7 @@ class UsersController extends \BaseController {
     
     //EDIT USER INFORMATION
     public function edit($id){
-		// get User
-		$user = User::find($id);
-		$this->layout->content = View::make('users.edit')->with('user', $user);
+		$this->layout->content = View::make('users.edit')->with('user', User::find($id))->with('roles', Roles::rolesToArray());
 	}
 
     //UPDATE USER INFORMATION
