@@ -24,11 +24,11 @@
     </div>
         
     <div class="form-signin-field">
-    	{{ Form::password('password', array('class'=>'input-block-level', 'placeholder'=>'Password', 'required'=>true)) }}
+    	{{ Form::password('password', array('class'=>'input-block-level', 'placeholder'=>'Password')) }}
     </div>
     
      <div class="form-signin-field">
-    	{{ Form::password('password_confirmation', array('class'=>'input-block-level', 'placeholder'=>'Confirm Password', 'required'=>true)) }}
+    	{{ Form::password('password_confirmation', array('class'=>'input-block-level', 'placeholder'=>'Confirm Password')) }}
     </div>
     
      <div class="form-signin-field">

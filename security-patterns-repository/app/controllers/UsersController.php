@@ -86,7 +86,8 @@ class UsersController extends \BaseController {
             $user->firstname = Input::get('firstname');
             $user->lastname = Input::get('lastname');
             $user->email = Input::get('email');
-            $user->password = Hash::make(Input::get('password'));
+			if(strlen(Input::get('password')) > 0)
+            	$user->password = Hash::make(Input::get('password'));
             $user->role = Input::get('role');
             $user->save();
             return Redirect::to('admin/users')->with('message', 'Updated!');
