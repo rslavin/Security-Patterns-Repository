@@ -59,7 +59,7 @@
 			<strong>Body</strong>
 			<p>{{ $pattern->body }}</p>
 			
-			@if (Auth::check())
+			@if (Auth::check() && $pattern->source != null)
 			<strong>Download</strong>
 			<p><a href="{{ $pattern->source}}">{{ $pattern->title}}</a></p>
 			@endif
