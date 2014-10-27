@@ -22,7 +22,10 @@
 				{{ Form::textarea('description', $pattern->description, array('class'=>'animated'))}}
                 <br/><br/>
                 <strong>Source</strong><br/>
-                {{ Form::text('source', $pattern->source, array('class'=>'animated'))}}
+                <p>{{ Form::text('source', $pattern->source, array('class'=>'animated'))}}</p>
+				<br />
+				<strong>Keywords</strong>
+				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'animated'))}}</p>
 				<br />
 				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block'))}}
 				{{ Form::close() }}
@@ -52,9 +55,6 @@
 				{{ Form::close() }}
 			@endif
 			</ul>
-			
-			<strong>Keywords</strong>
-			<p>{{ $pattern->keywords }}</p>
 			
 			<strong>Body</strong>
 			<p>{{ $pattern->body }}</p>
