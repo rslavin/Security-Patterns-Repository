@@ -59,8 +59,10 @@
 			<strong>Body</strong>
 			<p>{{ $pattern->body }}</p>
 			
+			@if (Auth::check())
 			<strong>Download</strong>
-			<p>TODO</p>
+			<p><a href="{{ $pattern->source}}">{{ $pattern->title}}</a></p>
+			@endif
 			
 			@if(Auth::check() && Auth::user()->role == 3)
 				{{ $study_button }}
