@@ -8926,3 +8926,7 @@ Stack trace:
 #9 /var/www/security-patterns-repository_dev/security-patterns-repository/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(606): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #10 /var/www/security-patterns-repository_dev/security-patterns-repository/public/index.php(49): Illuminate\Foundation\Application->run()
 #11 {main} [] []
+[2014-11-01 17:15:48] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class User contains 3 abstract methods and must therefore be declared abstract or implement the remaining methods (Illuminate\Auth\UserInterface::getRememberToken, Illuminate\Auth\UserInterface::setRememberToken, Illuminate\Auth\UserInterface::getRememberTokenName)' in /var/www/security-patterns-repository_dev/security-patterns-repository/app/models/User.php:75
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
