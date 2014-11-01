@@ -18,7 +18,7 @@
 			
 			<strong>Description</strong>
 			@if (Auth::check() && Auth::user()->role == 1)
-				{{ Form::open(array('url'=>'patterns/'.$pattern->pattern_id, 'class'=>'searchform')) }}
+				{{ Form::open(array('url'=>'patterns/'.$pattern->pattern_id, 'class'=>'searchform', 'files' => true)) }}
 				{{ Form::textarea('description', $pattern->description, array('class'=>'animated'))}}
                 <br/><br/>
                 <strong>Source</strong><br/>
@@ -29,7 +29,9 @@
                 <div id="keywordList" class="input_fields_wrap">
                   <!-- The keyword list will be populated here --> 
                 </div>    
-                <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button>
+                <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button><br />
+                <br /><strong>Upload pdf</strong><br />
+                {{ Form::file('pattern_file')}} 
                 
 				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'hidden', 'id' => 'keywordsField'))}}</p>
 				<br />
@@ -65,7 +67,7 @@
 			<strong>Body</strong>
 			<p>{{ $pattern->body }}</p>
 			
-			@if (Auth::check() && $pattern->source != null  && Auth::user()->role == 1)
+			@if (Auth::check() && $pattern->source != null)
 			<strong>Download</strong>
 			<p><a href="{{ $pattern->source}}">{{ $pattern->title}}</a></p>
 			@endif

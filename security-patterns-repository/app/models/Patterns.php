@@ -109,7 +109,21 @@ class Patterns extends Eloquent {
 		->update(array('description' => $description, 'source' => $source, 'keywords' => $keywords));
 		
 		return $res;
-	}
+    }
+
+    public static function updatePatternFile($id, $file){
+        $ref = Patterns::getRefShortName($id);
+        $path = public_path(). "/pattern_source/" .$ref. "/";
+        $filename = $id . " - " . $file->getClientOriginalName();
+        File::makeDirectory($path, $mode = 0775, true, true);
+        if($ref != null){
+            DB::table('patterns')
+                ->where('pattern_id', $id)
+                ->update(array('source' => "/repository/pattern_source/" . $ref . "/" . $filename));
+            return $file->move($path, $filename); 
+        }
+        return -1;
+    }
 	
 	public static function getPatternsCount() {
 		$all = DB::table('patterns')
@@ -171,7 +185,12 @@ class Patterns extends Eloquent {
 					->paginate(9);
 
 		return $patterns;
-	}
+    }
+
+    public static function getRefShortName($pattern_id){
+        $pattern = Patterns::getSinglePatternById($pattern_id);
+        return References::getShortName($pattern->reference_id);
+    }
 
 }
 ?>

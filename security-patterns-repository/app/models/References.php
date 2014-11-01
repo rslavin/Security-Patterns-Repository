@@ -21,6 +21,17 @@ class References extends Eloquent {
 
 		return $references;
 	}
+    
+    public static function getShortName($id){
+		$ref = DB::table('references')
+			->select('short_name')
+			->where('reference_id', '=', $id)
+			->first();
+		
+		if($ref == null)
+			return -1;
+		return $ref -> short_name;		
+	}
 
 }
 ?>

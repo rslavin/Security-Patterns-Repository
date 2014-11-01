@@ -1,5 +1,4 @@
 <?php
-
 class DetailsController extends BaseController {
 
 	/*
