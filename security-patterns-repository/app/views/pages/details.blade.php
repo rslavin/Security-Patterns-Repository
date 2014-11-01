@@ -25,9 +25,15 @@
                 <p>{{ Form::text('source', $pattern->source, array('class'=>'animated'))}}</p>
 				<br />
 				<strong>Keywords</strong>
-				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'animated'))}}</p>
+                <br/>
+                <div id="keywordList" class="input_fields_wrap">
+                  <!-- The keyword list will be populated here --> 
+                </div>    
+                <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button>
+                
+				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'hidden', 'id' => 'keywordsField'))}}</p>
 				<br />
-				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block'))}}
+				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block', 'id' => 'saveButton'))}}
 				{{ Form::close() }}
 			@else
 				<p>{{ $pattern->description }}</p>
