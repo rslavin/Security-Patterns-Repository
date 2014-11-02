@@ -30,7 +30,7 @@
                   <!-- The keyword list will be populated here --> 
                 </div>    
                 <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button><br />
-                <br /><strong>Upload pdf</strong><br />
+                <br /><strong>{{ $pattern->source != null ? "Replace <a href=\"".$pattern->source."\">existing</a> pdf" : "Upload pdf"; }}</strong><br />
                 {{ Form::file('pattern_file')}} 
 				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'hidden', 'id' => 'keywordsField'))}}</p>
 				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block', 'id' => 'saveButton'))}}

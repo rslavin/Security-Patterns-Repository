@@ -115,7 +115,14 @@ class Patterns extends Eloquent {
         $ref = Patterns::getRefShortName($id);
         $path = public_path(). "/pattern_source/" .$ref. "/";
         $filename = $id . " - " . $file->getClientOriginalName();
-        File::makeDirectory($path, $mode = 0775, true, true);
+
+        // make new directory and copy index.php (blank) to it
+        if(!File::exists($path)){
+            File::makeDirectory($path, $mode = 0775, true, true);
+            File::copy(public_path()."/pattern_source/index.php", $path.'/index.php');
+        }
+
+        // update database
         if($ref != null){
             DB::table('patterns')
                 ->where('pattern_id', $id)
