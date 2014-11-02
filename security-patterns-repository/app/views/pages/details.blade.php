@@ -21,9 +21,9 @@
 				{{ Form::open(array('url'=>'patterns/'.$pattern->pattern_id, 'class'=>'searchform', 'files' => true)) }}
 				{{ Form::textarea('description', $pattern->description, array('class'=>'animated'))}}
                 <br/><br/>
-                <strong>Source</strong><br/>
+                <!--<strong>Source</strong><br/>
                 <p>{{ Form::text('source', $pattern->source, array('class'=>'animated'))}}</p>
-				<br />
+				<br /> -->
 				<strong>Keywords</strong>
                 <br/>
                 <div id="keywordList" class="input_fields_wrap">
@@ -32,9 +32,7 @@
                 <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button><br />
                 <br /><strong>Upload pdf</strong><br />
                 {{ Form::file('pattern_file')}} 
-                
 				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'hidden', 'id' => 'keywordsField'))}}</p>
-				<br />
 				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block', 'id' => 'saveButton'))}}
 				{{ Form::close() }}
 			@else
@@ -49,23 +47,6 @@
 			{{ $pattern->implementation_type ? "Implementation<br />" : "" }}
 			{{ $pattern->procedural_type ? "Procedural<br />" : "" }}
 			</p>
-			
-			<strong>Related CWEs</strong>
-			<ul>
-			@foreach($cwes as $cwe)
-				<li>{{ $cwe->name }}</li>
-			@endforeach
-			@if (Auth::check() && Auth::user()->role == 1)
-				{{ Form::open(array('url'=>'cwe_set/add', 'class'=>'searchform')) }}
-				{{ Form::hidden('pattern_id', $pattern->pattern_id)}}
-				{{ Form::text('cwe_name') }}
-				{{ Form::submit('Add') }}
-				{{ Form::close() }}
-			@endif
-			</ul>
-			
-			<strong>Body</strong>
-			<p>{{ $pattern->body }}</p>
 			
 			@if (Auth::check() && $pattern->source != null)
 			<strong>Download</strong>
