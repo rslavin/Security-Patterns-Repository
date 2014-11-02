@@ -93,3 +93,17 @@ Route::filter('admin', function()
 	if (!Auth::check() || Auth::user()->role != 1)
 		return Redirect::to('/');
 });
+
+/*
+|--------------------------------------------------------------------------
+| UTSA Filter
+|--------------------------------------------------------------------------
+|
+| Redirects the user if they are not an on UTSA network.
+|
+*/
+Route::filter('utsa', function()
+{
+    if(!Utils::isUTSA())
+        return Redirect::to('/');
+});
