@@ -1,11 +1,11 @@
 <?php
 
-/**
- * Utils
- *  Returns true if the client's ip address is on the 
- *  UTSA network, False otherwise.
- */
 class Utils {
+    /**
+     * isUTSA
+     * Checks if a client is on the UTSA network.
+     * @return True if the client is on the UTSA network, false otherwise.
+     */
     public static function isUTSA(){
 
         $ip = Request::getClientIp();
