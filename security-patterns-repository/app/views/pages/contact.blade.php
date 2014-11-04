@@ -14,7 +14,7 @@
 	
 	<section>
     	<h2>Jianwei Niu</h2>
-		<p>email: <a href="mailto:jianwei.niu@utsa.edu">niu@cs.utsa.edu</a> </p>
+		<p>email: <a href="mailto:jianwei.niu@utsa.edu">jianwei.niu@utsa.edu</a> </p>
 	</section>
 
 	<br />
