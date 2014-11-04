@@ -103,10 +103,10 @@ class Patterns extends Eloquent {
 		return $patterns;
 	}
 	
-	public static function updatePattern($id, $description, $source, $keywords) {
+	public static function updatePattern($id, $description, $keywords) {
 		$res = DB::table('patterns')
 		->where('pattern_id', $id)
-		->update(array('description' => $description, 'source' => $source, 'keywords' => $keywords));
+		->update(array('description' => $description, 'keywords' => $keywords));
 		
 		return $res;
     }

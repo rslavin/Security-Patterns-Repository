@@ -27,7 +27,7 @@ class HomeController extends BaseController {
 		$description = Input::get('description');
         $source = Input::get('source');
 		$keywords = Input::get('keywords');
-        Patterns::updatePattern($id, $description, $source, $keywords);
+        Patterns::updatePattern($id, $description, $keywords);
         if(Input::file('pattern_file') != null && Input::file('pattern_file')->isValid())
             Patterns::updatePatternFile($id, Input::file('pattern_file'));
         // TODO add error message on failure
