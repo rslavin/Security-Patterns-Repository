@@ -5,11 +5,6 @@
 		<hr/>
 	</header>
 	
-	<section>
-    	<h2>Jean-Michel Lehker</h2>
-		<p>email: <a href="mailto:rpl599@my.utsa.edu">rpl599@my.utsa.edu</a></p>
-	</section>
-	<br />
 	
 	<section>
     	<h2>Rocky Slavin</h2>
@@ -19,7 +14,7 @@
 	
 	<section>
     	<h2>Jianwei Niu</h2>
-		<p>email: <a href="mailto:niu@cs.utsa.edu">niu@cs.utsa.edu</a> </p>
+		<p>email: <a href="mailto:jianwei.niu@utsa.edu">niu@cs.utsa.edu</a> </p>
 	</section>
 
 	<br />
