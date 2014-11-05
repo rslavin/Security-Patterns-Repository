@@ -43,7 +43,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * Get the rolename for a user.
 	 */
 	 public function getRolename(){
-	 	return Roles::getrole($this->role);
+	 	return Roles::getRole($this->role);
 	 }
 
 	/**
