@@ -14,7 +14,7 @@
 		<li><a href="/repository/patterns">Patterns</a></li>
 		<li><a href="/repository/types">Pattern Types</a></li>
 		<li><a href="/repository/references">References</a></li>
-		<li><a href="/repository/contact">Contact</a></li>
+		<li><a href="/repository/contact">Research</a></li>
 	</ul>
 	
 </section>

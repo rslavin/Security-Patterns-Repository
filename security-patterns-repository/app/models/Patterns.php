@@ -2,6 +2,7 @@
 
 class Patterns extends Eloquent {
 
+	protected $primaryKey = 'pattern_id';
 
 	public static function allPatterns()
 	{
