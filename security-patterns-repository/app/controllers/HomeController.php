@@ -48,7 +48,16 @@ class HomeController extends BaseController {
 	}
 	public function showPatternsByKeywords($keywords)
 	{
-		//$keywords = Input::get('q');
+		// record the query
+		$user_id = -1;
+		if(Auth::check())
+			$user_id = Auth::user()->id;
+		$query = new SearchQuery;
+		$query->user_id = $user_id;
+		$query->query = $keywords;
+		$query->save();
+
+		// make and render the results
 		$patterns = Patterns::getSearchResults($keywords);
 		return View::make('pages.patterns', array('patterns' => $patterns))
 				->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
