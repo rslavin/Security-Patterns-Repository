@@ -1,7 +1,7 @@
 @section('content')
 
 <div class="loginForm">
-	{{ Form::open(array('url'=>'users/create', 'class'=>'searchform')) }}
+	{{ Form::open(array('url'=>'/register', 'class'=>'searchform')) }}
     <h2 class="form-signin-heading">Register</h2>
     
     <ul>
@@ -31,7 +31,7 @@
     </div>
     
      <div class="form-signin-field">
-    	{{ Form::select('role', array('Admin' => 'Admin', 'User' => 'User', 'Study' => 'Study'), 'User', ['class' => 'form-dropdown']) }}
+    	{{ Form::select('role', $roles, ['class' => 'form-dropdown']) }}
     </div>   
     
     <div class="form-signin-field">

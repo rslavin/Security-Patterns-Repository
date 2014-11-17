@@ -36,7 +36,7 @@
 	@endforeach
 	</tbody>
 </table>
-<a class="addMember" id="links" href="{{ URL::to('users/register') }}">Add new member</a>  
+<a class="addMember" id="links" href="{{ URL::to('/register') }}">Add new member</a>  
 </div>
      
 </div>

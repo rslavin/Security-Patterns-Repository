@@ -30,7 +30,8 @@ class UsersController extends \BaseController {
     //REGISTRATION LOGIC
   
     public function getRegister() {
-        $this->layout->content = View::make('users.register');
+        $this->layout->content = View::make('users.register')->with('roles', Roles::rolesToArray());
+
     }
     
     public function postCreate() {
@@ -44,9 +45,9 @@ class UsersController extends \BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->role = Input::get('role');
             $user->save();
-            return Redirect::to('users/login')->with('message', 'Thanks for registering!');
+            return Redirect::to('/')->with('message', 'Thanks for registering!');
         } else {
-            return Redirect::to('users/register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
+            return Redirect::to('/register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
         }     
     }
     

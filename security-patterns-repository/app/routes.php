@@ -54,6 +54,7 @@ Route::get('/logout', 'UsersController@getLogout');
 Route::post('/login', array('uses' => 'UsersController@postLogin'));
 
 Route::get('/register', 'UsersController@getRegister');
+Route::post('/register', 'UsersController@postCreate');
 
 /*
  * ------------------------------------------------------------
@@ -97,3 +98,4 @@ Route::post('/selectPattern', 'UsersController@addPatternSelection');
 */
 
 Route::when('admin*', 'admin');
+Route::when('register', 'admin');
