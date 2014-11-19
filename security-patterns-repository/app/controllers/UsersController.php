@@ -21,7 +21,7 @@ class UsersController extends \BaseController {
 				->withInput();
 		}
 	}
-	
+
 	public function getLogout() {
 		Auth::logout();
 		return Redirect::back();
@@ -113,10 +113,36 @@ class UsersController extends \BaseController {
 	
 	// add a new selection for a scenario
 	public function addPatternSelection(){
-		UserStudy::addSelection(Auth::user()->id, Input::get('pattern_id'));
+		UserSelection::addSelection(Auth::user()->id, Input::get('pattern_id'));
+		$scenario = UserSelection::getCurrentScenario(AUTH::user()->id);
+		if($scenario > 4){
+			// if done, change role to "user"
+			$user = User::find(Auth::user()->id);
+			$user->role = 2;
+			$user->save();	
+			return Redirect::to("thanks");
+		}
 		return Redirect::to('/patterns');
 		//->with('message', 'Pattern ' . Patterns::getPatternsById(Input::get('pattern_id'))->title . 'selected')
 	}
 
+	public function createStudyAccounts(){ 
+		$emails =
+		"the.bad.guy.mx@gmail.com;marce_a_f@hotmail.com;noremac8807@sbcglobal.net;sfz020@my.utsa.edu;f.alswhaim@gmail.com;vandrada1248@gmail.com;i.baez.g1@gmail.com;cyk617@my.utsa.edu;shadowmoses68@gmail.com;gabygoli@hotmail.com;brandon.bolt1@gmail.com;jbruneault@gmail.com;ivancapistran13@gmail.com;bcot84@gmail.com;droginator@yahoo.com;matteisermann@gmail.com;fajjosh@gmail.com;oscar.falcon@live.com;sey967@my.utsa.edu;bet_gc1991@hotmail.com;mhg197@my.utsa.edu;livingright0206@gmail.com;jharleyj@gmail.com;amski91@gmail.com;rodneycjordan@gmail.com;aaronclewis85@yahoo.com;xop651@my.utsa.edu;Ajmartinez93@live.com;xjj171@my.utsa.edu;jfreezy101@gmail.com;oscarmedina735@hotmail.com;fdf786@my.utsa.edu;jacob.pagano@gmail.com;ritesh.patel@live.com;heatherld@satx.rr.com;m.price83@yahoo.com;jeffreyrizzuto@gmail.com;fhl930@my.utsa.edu;daniel.ruhmkorf@gmail.com;zlj573@my.utsa.edu;Taioblack@gmail.com;ssilvestro@gmail.com;eviveiro@gmail.com;mpdsaiko@gmail.com;fey882@my.utsa.edu";
+	$emailsArray = explode(";", $emails); $total = 0;
+
+		foreach($emailsArray as $email){
+			$user = new User;
+			$user->firstname = "Student";
+			$user->lastname = "Participant";
+			$user->email = $email;
+            $user->password = Hash::make("CS4773study");
+			$user->role = 3;
+			$user->save();
+			$total++;
+		}
+		return Redirect::to('/')->with('message', $total + ' accounts created');
+	}
+	
 }
 ?>

@@ -27,11 +27,15 @@ class HomeController extends BaseController {
 		$description = Input::get('description');
         $source = Input::get('source');
 		$keywords = Input::get('keywords');
-        Patterns::updatePattern($id, $description, $keywords);
-        if(Input::file('pattern_file') != null && Input::file('pattern_file')->isValid())
-            Patterns::updatePatternFile($id, Input::file('pattern_file'));
+		Patterns::updatePattern($id, $description, $keywords);
+		if(Input::file('pattern_file') != null && Input::file('pattern_file')->isValid()){
+			Patterns::updatePatternFile($id, Input::file('pattern_file'));
+			$message = "Upload complete!";
+		}
+		else if(!Input::file('pattern_file')->isValid())
+			$message = "Error: " + Input::file('pattern_file')->getError();
         // TODO add error message on failure
-		return Redirect::back();
+		return Redirect::back()->with('message', $message);
 	}
 	public function showPatternsByType($type)
 	{

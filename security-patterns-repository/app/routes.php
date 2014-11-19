@@ -85,6 +85,12 @@ Route::get('/types', function()
  * ------------------------------------------------------------
  */
 
+Route::get("/thanks", function(){
+	return View::make('study.thanks')
+		->nest('pattern_count', 'pages.count', Patterns::getPatternsCount());
+});
+
+//Route::get('/createstudy', 'UsersController@createStudyAccounts');
    
 Route::post('/selectPattern', 'UsersController@addPatternSelection');
 

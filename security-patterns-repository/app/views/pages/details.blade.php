@@ -2,16 +2,15 @@
 @section('content')
 	<header>
 		<h1>Patterns</h1>
-		<a href="/repository/patterns">all </a>|
-		<a href="/repository/patterns/design">design </a>|
-		<a href="/repository/patterns/requirements">requirement </a>|
-		<a href="/repository/patterns/architectural">architectural </a>|
-		<a href="/repository/patterns/implementation">implementation </a>|
-        <a href="/repository/patterns/procedural">procedural </a>
+		<a href="/repository/patterns">all</a> |
+		<a href="/repository/patterns/design">design</a> |
+		<a href="/repository/patterns/requirements">requirement</a> |
+		<a href="/repository/patterns/architectural">architectural</a> |
+		<a href="/repository/patterns/implementation">implementation</a> |
+        <a href="/repository/patterns/procedural">procedural</a>
 		<hr/>
 	</header>
 	
-		
 		<section>
     		<h2>{{ $pattern->title }} {{ $pattern->mini ? "<small>(mini pattern)</small>" : "" }}</h2>
 			<h3> (source: <a href="/repository/references/{{$pattern->reference_id}}">{{ $pattern->short_name}}</a>)</h3>
@@ -25,15 +24,15 @@
                 <p>{{ Form::text('source', $pattern->source, array('class'=>'animated'))}}</p>
 				<br /> -->
 				<strong>Keywords</strong>
-                <br/>
-                <div id="keywordList" class="input_fields_wrap">
-                  <!-- The keyword list will be populated here --> 
+<br />
+				{{ Form::text('keywords', $pattern->keywords, array(/*'class'=>'hidden',*/ 'id' => 'keywordsField'))}}
+<br />
+                <!-- <div id="keywordList" class="input_fields_wrap">
                 </div>    
-                <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button><br />
+                <button class="add_field_button btn btn-small btn-info edit">Add More Keywords</button><br /> --> 
                 <br /><strong>{{ $pattern->source != null ? "Replace <a href=\"".$pattern->source."\">existing</a> pdf" : "Upload pdf"; }}</strong><br />
-                {{ Form::file('pattern_file')}} 
-				<p>{{ Form::text('keywords', $pattern->keywords, array('class'=>'hidden', 'id' => 'keywordsField'))}}</p>
-				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block', 'id' => 'saveButton'))}}
+                {{ Form::file('pattern_file')}} <br />
+				{{ Form::submit('Save', array('class'=>'btn btn-large btn-primary btn-block'))}}
 				{{ Form::close() }}
 			@else
 				<p>{{ $pattern->description }}</p>
