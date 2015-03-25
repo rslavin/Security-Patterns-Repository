@@ -105,3 +105,28 @@ Route::post('/selectPattern', 'UsersController@addPatternSelection');
 
 Route::when('admin*', 'admin');
 Route::when('register', 'admin');
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Tree Generation
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/api/v1/trees/parents/{id}', function($id)
+{
+    return Trees::getPatternParentsById($id);
+});
+
+Route::get('/api/v1/trees/childs/{id}', function($id)
+{
+    return Trees::getPatternChildrenById($id);
+});
+
+Route::get('/api/v1/pattern/', function()
+{
+    return Trees::getPatterns();
+});
+
+
