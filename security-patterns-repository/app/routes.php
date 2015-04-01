@@ -128,5 +128,10 @@ Route::get('/api/v1/pattern/', function()
 {
     return Trees::getPatterns();
 });
+   
+Route::get('/api/v1/trees/ors/{id}', function($id)
+{
+    return Trees::getOrsById($id);
+});
 
 

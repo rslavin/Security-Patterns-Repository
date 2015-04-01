@@ -10,7 +10,7 @@ class Trees extends Eloquent {
 		
 		$parents = DB::table('trees')
 			->where('pattern_id', '=', $id)
-			->select('parent_id','pattern_id','required','relation_type')
+			->select('parent_id','pattern_id','required','group','relation_type')
             //->paginate(999);
             ->get();
 
@@ -22,7 +22,7 @@ class Trees extends Eloquent {
 		
 		$parents = DB::table('trees')
 			->where('parent_id', '=', $id)
-			->select('parent_id','pattern_id','required','relation_type')
+			->select('parent_id','pattern_id','required','group','relation_type')
 			->paginate(999);
 
 		return $parents;
@@ -49,6 +49,19 @@ class Trees extends Eloquent {
 			->paginate(999);
 
 		return $pattern;
+	}
+    
+     //Pattern Tree Generation
+    public static function getOrsById($id)
+	{
+		
+		$parents = DB::table('trees_or')
+			->where('parent_id', '=', $id)
+			->select('or_id','parent_id','patterns')
+            //->paginate(999);
+            ->get();
+
+		return $parents;
 	}
 
 }
