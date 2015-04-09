@@ -47,6 +47,39 @@
 			{{ $pattern->procedural_type ? "Procedural<br />" : "" }}
 			</p>
 			
+			@if ($cwes)
+			<p><strong>Related CWEs</strong><br />
+			<ul>
+			@foreach ($cwes as $cwe)
+				<li><a href="https://cwe.mitre.org/data/definitions/{{$cwe->cwe_id}}.html" target="_blank">{{$cwe->cwe_name}}</a></li>
+			@endforeach
+			</ul>
+			@endif
+            
+            <div class="visipattern">
+            <div class="header">
+                {{ HTML::image('images/logo2.png', $alt="VisiPattern", $attributes = array()) }}
+            </div>
+                <div class="legend">
+            {{ HTML::image('images/legend2.png', $alt="VisiPattern", $attributes = array()) }}
+                    </div>
+            <div id="mynetwork"></div>
+
+            <div id="info"></div>
+            
+                
+            <script src='/repository/js/visipattern.js'></script>
+            <script src='/repository/js/pattern.js'></script>
+            <script src='/repository/js/libs/vis/vis.js'></script>
+
+        </div>
+            
+            
+            
+            
+            
+            
+
 			@if (Auth::check() && $pattern->source != null)
 			<strong>Download</strong>
 			<p><a href="{{ $pattern->source}}">{{ $pattern->title}}</a></p>

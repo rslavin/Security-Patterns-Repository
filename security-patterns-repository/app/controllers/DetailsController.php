@@ -13,12 +13,10 @@ class DetailsController extends BaseController {
 	public function showPatternById($id)
 	{
 		$pattern = Patterns::getSinglePatternById($id);
-		$cwe_set = CweSet::where('pattern_id', $id)->first();
-		if ($cwe_set) {
-			$cwes = $cwe_set->cwe;	
-		} else {
-			$cwes = [];
-		}
+		$cwes = DB::table('cwe_map')
+			->join('cwe_list', 'cwe_map.cwe_list_id', '=', 'cwe_list.cwe_list_id')
+			->where('cwe_map.pattern_id', '=', $id)
+			->get();
 		
 		if(Auth::check() && Auth::user()->role == 3){
 			$scenario = UserSelection::getCurrentScenario(AUTH::user()->id);

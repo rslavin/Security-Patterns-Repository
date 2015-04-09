@@ -51,6 +51,19 @@ class Trees extends Eloquent {
 		return $pattern;
 	}
     
+        //Pattern Tree Generation
+    public static function getSiblingByGroup($id)
+	{
+		
+		$parents = DB::table('trees')
+			->where('group', '=', $id)
+			->select('parent_id','pattern_id','required','group','relation_type')
+            //->paginate(999);
+            ->get();
+
+		return $parents;
+	}
+    
      //Pattern Tree Generation
     public static function getOrsById($id)
 	{

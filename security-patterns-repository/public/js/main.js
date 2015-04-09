@@ -2,7 +2,7 @@ $(function(){
 	$('.animated').autosize();
 });
 
-
+/*
 $(document).ready(function () {
     var max_fields = 10; //maximum input boxes allowed
     var wrapper = $(".input_fields_wrap"); //Fields wrapper
@@ -41,3 +41,4 @@ $(document).ready(function () {
         $("#keywordsField").val(newList.join(','));
     });
 });
+*/

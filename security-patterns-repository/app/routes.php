@@ -134,4 +134,12 @@ Route::get('/api/v1/trees/ors/{id}', function($id)
     return Trees::getOrsById($id);
 });
 
+Route::get('/api/v1/trees/siblings/{id}', function($id)
+{
+    return Trees::getSiblingByGroup($id);
+});
+
+
+
+
 
